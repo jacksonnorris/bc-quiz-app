@@ -79,6 +79,10 @@ let answerKey = [2, 2, 3, 1, 1, 1, 1, 1, 1, 1];
 let timeNum = 75;
 let i = 0;
 
+var highScoreButton = document.getElementById("viewHighScores");
+var highScoreArea = document.getElementById("scoreArea");
+highScoreButton.addEventListener('click', showScores);
+
 const highScore = {name: "Jack", score: 9000}
 const highScore2 = {name: "Jackson", score: 9001}
 const highScoreList = [];
@@ -108,8 +112,8 @@ function startQuiz() {
     i = 0;
     timeLeft.innerHTML = "Time: 75";
     startTimer();
-    document.getElementById("startQuiz").style.display = "none";
-    answerContainer.style.display = "block";
+    document.getElementById("startQuiz").classList.add("hidden");
+    answerContainer.classList.remove("hidden");
     console.log("qll: " + Object.keys(questionList).length)
     console.log("qlql: " + questionList.questions.length)
     // while (i < questionList.questions.length) {
@@ -164,7 +168,12 @@ function startTimer() {
 }
 function endGame() {
 
-}
-function showScores() {
 
+}
+function showScores(event) {
+    console.log(event.target)
+    if (highScoreArea.classList.contains("hidden")) {
+        highScoreArea.classList.remove("hidden");
+    }
+    else {  highScoreArea.classList.add("hidden"); }
 }

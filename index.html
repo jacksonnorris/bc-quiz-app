@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <div class="highScores">View Highscores</div>
+      <div class="viewHighScores" id="viewHighScores">View Highscores</div>
       <div class="Time">Time: 0</div>
     </header>
     <section id="quizArea">
@@ -21,7 +21,7 @@
           limit
         </p>
         <button id="startQuiz" onclick="startQuiz()">Start Quiz</button>
-        <div class="answersContainer" id="answersContainer">
+        <div class="answersContainer hidden" id="answersContainer">
           <button class="answerButton" id="ans1" onclick="answer1()"></button
           ><button class="answerButton" id="ans2" onclick="answer2()"></button
           ><button class="answerButton" id="ans3" onclick="answer3()"></button
@@ -29,9 +29,10 @@
         </div>
       </div>
     </section>
-    <section id="scoreArea">
+    <section id="scoreArea" class="hidden">
       <h1>High Scores</h1>
       <div id="highScores"></div>
+      <div id="enterScore" class="hidden"></div>
     </section>
   </body>
   <script type="text/javascript" src="./script.js"></script>

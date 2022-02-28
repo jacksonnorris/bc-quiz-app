@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <title>Coding Quiz</title>
+    <title>Cars Quiz</title>
   </head>
   <body>
     <header>
       <div class="highScores">View Highscores</div>
       <div class="Time">Time: 0</div>
     </header>
-    <section>
-      <div class="codingChallenge"><h1>Coding Challenge</h1></div>
+    <section id="quizArea">
+      <div class="codingChallenge"><h1>Car Challenge</h1></div>
       <div class="questionArea">
         <h3 class="askQuestion" id="questionArea"></h3>
         <p class="aboutInfo">
@@ -28,6 +28,10 @@
           ><button class="answerButton" id="ans4" onclick="answer4()"></button>
         </div>
       </div>
+    </section>
+    <section id="scoreArea">
+      <h1>High Scores</h1>
+      <div id="highScores"></div>
     </section>
   </body>
   <script type="text/javascript" src="./script.js"></script>

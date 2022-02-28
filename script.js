@@ -1,4 +1,4 @@
-var questionList = {
+const questionList = {
     "questions" :
     [
         [
@@ -9,19 +9,92 @@ var questionList = {
             {"four" : "Performante"}
         ],
         [
-            {"q" : "What is2"},
-            {"one" : "ans1"},
-            {"two" : "ans2"},
-            {"three" : "ans3"},
-            {"four" : "ans4"}
+            {"q" : "How many cylinders does an Audi RS3 have?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "What is the chassis designation for a 2016 Porsche 911?"},
+            {"one" : "718"},
+            {"two" : "981"},
+            {"three" : "991.1"},
+            {"four" : "991.2"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
+        ],
+        [
+            {"q" : "?"},
+            {"one" : "4"},
+            {"two" : "5"},
+            {"three" : "6"},
+            {"four" : "8"}
         ],
     ]
 }
 
 // Why are you cheating
-let answerKey = [2, 3];
+let answerKey = [2, 2, 3, 1, 1, 1, 1, 1, 1, 1];
 let timeNum = 75;
 let i = 0;
+
+const highScore = {name: "Jack", score: 9000}
+const highScore2 = {name: "Jackson", score: 9001}
+const highScoreList = [];
+var highScores = document.getElementById("highScores");
+highScoreList.push(highScore);
+highScoreList.push(highScore2);
+let j = 0;
+let listElement = document.createElement("ol");
+while (j < highScoreList.length) {
+    let tmp = document.createElement("li");
+    tmp.innerHTML = highScoreList[j].name + " - " + highScoreList[j].score;
+    listElement.appendChild(tmp)
+    j++;
+}
+highScores.appendChild(listElement);
+console.log(highScoreList);
 
 var questionPrompt = document.getElementById("questionArea");
 var answerVals = document.getElementsByClassName("answerButton");

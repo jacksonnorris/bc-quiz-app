@@ -17,6 +17,13 @@ header span {
 .hidden {
   display: none;
 }
+.aboutInfo {
+  width: 700px;
+  padding: 20px 0;
+}
+.askQuestion {
+  padding: 20px 0;
+}
 button {
   cursor: pointer;
   display: block;
@@ -40,6 +47,13 @@ button:hover {
 #enterName {
   text-align: start;
 }
+#yourScore {
+  padding: 15px 0;
+  font-weight: bold;
+}
+#submitName {
+  margin-top: 15px;
+}
 ol {
   max-width: 500px;
   border: solid 2px black;
@@ -49,9 +63,15 @@ li {
   padding: 5px;
   font-weight: bold;
   background-color: aliceblue;
+  list-style-position: inside;
 }
 li:nth-child(2n + 1) {
   background-color: azure;
+}
+@media (max-width: 768px) {
+  .aboutInfo {
+    width: 90%;
+  }
 }
 @media (max-width: 576px) {
   button {

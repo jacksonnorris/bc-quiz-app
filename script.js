@@ -101,6 +101,8 @@ let questions = questionList.questions;
 var inputName = document.getElementById("enterName");
 var inputNameContainer = document.getElementById("enterNameContainer");
 
+var timer;
+
 function startQuiz() {
     i = 0;
     timeLeft.innerHTML = "Time: 75";
@@ -157,7 +159,7 @@ function nextQuestion() {
     else { endGame() }
 }
 function startTimer() {
-    var timer = setInterval(function() {
+    timer = setInterval(function() {
         timeNum--;
         timeLeft.innerHTML = "Time: " + timeNum;
         if (timeNum <= 0) {
@@ -167,8 +169,10 @@ function startTimer() {
     }, 1000)
 }
 function endGame() {
+    clearInterval(timer);
     answerContainer.classList.add("hidden");
-
+    document.getElementById('quizArea').classList.add('hidden');
+    document.getElementById('enterNameContainer').classList.remove("hidden");
 }
 function showScores() {
     // console.log(event.target)
@@ -196,7 +200,9 @@ function submitName() {
         highScoreList.sort(function(a,b){
             return b.score - a.score;
         });
+        highScoreArea.classList.add("hidden");
         showScores();
-        highScoreArea.classList.remove("hidden");
+        inputNameContainer.classList.add('hidden');
+        // highScoreArea.classList.remove("hidden");
     }
 }

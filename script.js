@@ -164,7 +164,14 @@ function nextQuestion() {
     else { endGame() }
 }
 function startTimer() {
-    
+    var timer = setInterval(function() {
+        timeNum--;
+        timeLeft.innerHTML = "Time: " + timeNum;
+        if (timeNum <= 0) {
+            clearInterval(timer);
+            endGame();
+        }
+    }, 1000)
 }
 function endGame() {
 

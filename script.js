@@ -23,11 +23,11 @@ const questionList = {
             {"four" : "991.2"}
         ],
         [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
+            {"q" : "What is known as Godzilla?"},
+            {"one" : "Nissan Skyline GT-R"},
+            {"two" : "Chevrolet Corvette Z06"},
+            {"three" : "Lexus LFA"},
+            {"four" : "Toyota Supra"}
         ],
         [
             {"q" : "?"},
@@ -89,15 +89,7 @@ const highScoreList = [];
 var highScores = document.getElementById("highScores");
 highScoreList.push(highScore);
 highScoreList.push(highScore2);
-let j = 0;
-let listElement = document.createElement("ol");
-while (j < highScoreList.length) {
-    let tmp = document.createElement("li");
-    tmp.innerHTML = highScoreList[j].name + " - " + highScoreList[j].score;
-    listElement.appendChild(tmp)
-    j++;
-}
-highScores.appendChild(listElement);
+
 console.log(highScoreList);
 
 var questionPrompt = document.getElementById("questionArea");
@@ -106,7 +98,8 @@ var answerContainer = document.getElementById("answersContainer");
 var timeLeft = document.getElementsByClassName("Time")[0];
 let questions = questionList.questions;
 
-
+var inputName = document.getElementById("enterName");
+var inputNameContainer = document.getElementById("enterNameContainer");
 
 function startQuiz() {
     i = 0;
@@ -174,13 +167,36 @@ function startTimer() {
     }, 1000)
 }
 function endGame() {
-
+    answerContainer.classList.add("hidden");
 
 }
-function showScores(event) {
-    console.log(event.target)
+function showScores() {
+    // console.log(event.target)
     if (highScoreArea.classList.contains("hidden")) {
         highScoreArea.classList.remove("hidden");
+        let j = 0;
+        let listElement = document.createElement("ol");
+        while (j < highScoreList.length) {
+            let tmp = document.createElement("li");
+            tmp.innerHTML = highScoreList[j].name + " - " + highScoreList[j].score;
+            listElement.appendChild(tmp)
+            j++;
+        }
+        // setTimeout(function() {
+            try { highScores.removeChild(highScores.firstChild); } catch(err) {console.log(err)}
+        //  }, 20000);
+        highScores.appendChild(listElement);
     }
     else {  highScoreArea.classList.add("hidden"); }
+}
+function submitName() {
+    if (inputName.value != null) {
+        var newHighScore = {name: inputName.value, score: timeNum}
+        highScoreList.push(newHighScore);
+        highScoreList.sort(function(a,b){
+            return b.score - a.score;
+        });
+        showScores();
+        highScoreArea.classList.remove("hidden");
+    }
 }

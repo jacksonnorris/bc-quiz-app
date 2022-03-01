@@ -61,10 +61,13 @@ var timer;
 
 function startQuiz() {
     i = 0;
+    timeNum = 75;
     timeLeft.innerHTML = "Time: 75";
     startTimer();
     document.getElementById("startQuiz").classList.add("hidden");
     answerContainer.classList.remove("hidden");
+    document.getElementById('quizArea').classList.remove('hidden');
+    document.getElementById('playAgain').classList.add('hidden');
     console.log("qll: " + Object.keys(questionList).length)
     console.log("qlql: " + questionList.questions.length)
     // while (i < questionList.questions.length) {
@@ -162,5 +165,10 @@ function submitName() {
         showScores();
         inputNameContainer.classList.add('hidden');
         // highScoreArea.classList.remove("hidden");
+        document.getElementById('playAgain').classList.remove('hidden');
     }
+}
+function playAgain() {
+    highScoreArea.classList.add("hidden");
+    startQuiz();
 }

@@ -40,3 +40,21 @@ button:hover {
 #enterName {
   text-align: start;
 }
+ol {
+  max-width: 500px;
+  border: solid 2px black;
+  margin: 20px;
+}
+li {
+  padding: 5px;
+  font-weight: bold;
+  background-color: aliceblue;
+}
+li:nth-child(2n + 1) {
+  background-color: azure;
+}
+@media (max-width: 576px) {
+  button {
+    width: 90%;
+  }
+}

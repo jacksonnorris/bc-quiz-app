@@ -1,6 +1,18 @@
 * {
   padding: 0;
   margin: 0;
+  text-align: -webkit-center;
+}
+header {
+  background-color: darkgrey;
+  padding: 10px 0;
+  border-bottom: solid black 2px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+header span {
+  margin: 0 auto;
 }
 .hidden {
   display: none;
@@ -11,4 +23,20 @@ button {
   padding: 10px;
   margin: 10px;
   width: 500px;
+  border-radius: 10px;
+  transition: 300ms ease all;
+  background-color: cadetblue;
+}
+button:hover {
+  background-color: aqua;
+}
+.viewHighScores {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Time {
+  justify-content: flex-end;
+}
+#enterName {
+  text-align: start;
 }

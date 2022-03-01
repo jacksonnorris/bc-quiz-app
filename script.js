@@ -29,53 +29,11 @@ const questionList = {
             {"three" : "Lexus LFA"},
             {"four" : "Toyota Supra"}
         ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
-        [
-            {"q" : "?"},
-            {"one" : "4"},
-            {"two" : "5"},
-            {"three" : "6"},
-            {"four" : "8"}
-        ],
     ]
 }
 
 // Why are you cheating
-let answerKey = [2, 2, 3, 1, 1, 1, 1, 1, 1, 1];
+let answerKey = [2, 2, 3, 1];
 let timeNum = 75;
 let i = 0;
 
@@ -83,12 +41,9 @@ var highScoreButton = document.getElementById("viewHighScores");
 var highScoreArea = document.getElementById("scoreArea");
 highScoreButton.addEventListener('click', showScores);
 
-const highScore = {name: "Jack", score: 9000}
-const highScore2 = {name: "Jackson", score: 9001}
 const highScoreList = [];
 var highScores = document.getElementById("highScores");
-highScoreList.push(highScore);
-highScoreList.push(highScore2);
+
 
 console.log(highScoreList);
 
@@ -100,6 +55,7 @@ let questions = questionList.questions;
 
 var inputName = document.getElementById("enterName");
 var inputNameContainer = document.getElementById("enterNameContainer");
+
 
 var timer;
 
@@ -121,6 +77,7 @@ function startQuiz() {
         answerVals[3].innerHTML = questionContent[4].four;
         
     // }
+    document.getElementsByClassName('aboutInfo')[0].classList.add('hidden')
 }
 
 function answer1() {
@@ -173,6 +130,7 @@ function endGame() {
     answerContainer.classList.add("hidden");
     document.getElementById('quizArea').classList.add('hidden');
     document.getElementById('enterNameContainer').classList.remove("hidden");
+    document.getElementById('yourScore').innerHTML = "You Scored: " + timeNum;
 }
 function showScores() {
     // console.log(event.target)

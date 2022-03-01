@@ -31,32 +31,23 @@ const questionList = {
         ],
     ]
 }
-
+const highScoreList = [];
 // Why are you cheating
-let answerKey = [2, 2, 3, 1];
+const answerKey = [2, 2, 3, 1];
+
 let timeNum = 75;
 let i = 0;
-
 var highScoreButton = document.getElementById("viewHighScores");
 var highScoreArea = document.getElementById("scoreArea");
-highScoreButton.addEventListener('click', showScores);
-
-const highScoreList = [];
 var highScores = document.getElementById("highScores");
-
-
-console.log(highScoreList);
-
 var questionPrompt = document.getElementById("questionArea");
 var answerVals = document.getElementsByClassName("answerButton");
 var answerContainer = document.getElementById("answersContainer");
 var timeLeft = document.getElementsByClassName("Time")[0];
 let questions = questionList.questions;
-
 var inputName = document.getElementById("enterName");
 var inputNameContainer = document.getElementById("enterNameContainer");
-
-
+highScoreButton.addEventListener('click', showScores);
 var timer;
 
 function startQuiz() {
@@ -68,18 +59,12 @@ function startQuiz() {
     answerContainer.classList.remove("hidden");
     document.getElementById('quizArea').classList.remove('hidden');
     document.getElementById('playAgain').classList.add('hidden');
-    console.log("qll: " + Object.keys(questionList).length)
-    console.log("qlql: " + questionList.questions.length)
-    // while (i < questionList.questions.length) {
-        console.log("questions: " + questions[i])
-        let questionContent = questions[i];
-        questionPrompt.innerHTML = questionContent[0].q;
-        answerVals[0].innerHTML = questionContent[1].one;
-        answerVals[1].innerHTML = questionContent[2].two;
-        answerVals[2].innerHTML = questionContent[3].three;
-        answerVals[3].innerHTML = questionContent[4].four;
-        
-    // }
+    let questionContent = questions[i];
+    questionPrompt.innerHTML = questionContent[0].q;
+    answerVals[0].innerHTML = questionContent[1].one;
+    answerVals[1].innerHTML = questionContent[2].two;
+    answerVals[2].innerHTML = questionContent[3].three;
+    answerVals[3].innerHTML = questionContent[4].four;    
     document.getElementsByClassName('aboutInfo')[0].classList.add('hidden')
 }
 
@@ -100,12 +85,14 @@ function rightAnswer() {
     i++;
     nextQuestion();
 }
+
 function wrongAnswer() {
     i++;
     timeNum -= 10;
     timeLeft.innerHTML = "Time: " + timeNum;
     nextQuestion();
 }
+
 function nextQuestion() {
     if (i < questionList.questions.length) {
         console.log("questions: " + questions[i])
@@ -118,6 +105,7 @@ function nextQuestion() {
     }
     else { endGame() }
 }
+
 function startTimer() {
     timer = setInterval(function() {
         timeNum--;
@@ -128,6 +116,7 @@ function startTimer() {
         }
     }, 1000)
 }
+
 function endGame() {
     clearInterval(timer);
     answerContainer.classList.add("hidden");
@@ -135,8 +124,8 @@ function endGame() {
     document.getElementById('enterNameContainer').classList.remove("hidden");
     document.getElementById('yourScore').innerHTML = "You Scored: " + timeNum;
 }
+
 function showScores() {
-    // console.log(event.target)
     if (highScoreArea.classList.contains("hidden")) {
         highScoreArea.classList.remove("hidden");
         let j = 0;
@@ -147,12 +136,11 @@ function showScores() {
             listElement.appendChild(tmp)
             j++;
         }
-        // setTimeout(function() {
-            try { highScores.removeChild(highScores.firstChild); } catch(err) {console.log(err)}
-        //  }, 20000);
+        try { highScores.removeChild(highScores.firstChild); } catch(err) {console.log(err)}
         highScores.appendChild(listElement);
     }
     else {  highScoreArea.classList.add("hidden"); }
+
 }
 function submitName() {
     if (inputName.value != null) {
@@ -164,10 +152,10 @@ function submitName() {
         highScoreArea.classList.add("hidden");
         showScores();
         inputNameContainer.classList.add('hidden');
-        // highScoreArea.classList.remove("hidden");
         document.getElementById('playAgain').classList.remove('hidden');
     }
 }
+
 function playAgain() {
     highScoreArea.classList.add("hidden");
     startQuiz();

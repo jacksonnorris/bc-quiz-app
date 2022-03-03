@@ -2,6 +2,8 @@
 
 This application is a quiz that tests your knowledge on cars
 
+[Live link to application](https://jacksonnorris.github.io/bc-quiz-app/)
+
 ## Rules:
 
 ```
@@ -15,7 +17,7 @@ This application is a quiz that tests your knowledge on cars
 
 ```
     High Score leaderboard that resets on page refresh
-    leaderboard is sorted with highest score at top
+    Leaderboard is sorted with highest score at top
     Ability to play game again once complete
 
 ```
